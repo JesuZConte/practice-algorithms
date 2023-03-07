@@ -2,3 +2,10 @@ Algorithms:
 - Length of last word
 - Reverse string
 - LongestCommonPrefix
+- Lazy Streams
+- Data Transformation
+- Even Number
+- Find Duplicates
+- Multiply Elements
+- Sort Employees based on salary
+- Count Employee salary
