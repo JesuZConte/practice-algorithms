@@ -9,3 +9,4 @@ Algorithms:
 - Multiply Elements
 - Sort Employees based on salary
 - Count Employee salary
+- Verification Digit for RUT (document id)
