@@ -38,5 +38,32 @@ public class GenerateDVByRut {
         }
         return documentId + "-" + verificationDigit;
     }
+    
+
+    public static String addVerificationDigitImprovedByChatGPT(String documentId) {
+        List<String> documentIdList = new ArrayList<>(Arrays.asList(documentId.split("")));
+        List<String> multipliedDigits = new ArrayList<>();
+
+        int multiplier = 2;
+        int sum = 0;
+        for (int i = documentIdList.size() - 1, j = 0; i >= 0; i--, j++) {
+            int digit = Integer.parseInt(documentIdList.get(i));
+            int multipliedDigit = digit * multiplier;
+            multipliedDigits.add(j, String.valueOf(multipliedDigit));
+            sum += multipliedDigit;
+
+            if (multiplier == 7) {
+                multiplier = 1;
+            }
+            multiplier++;
+        }
+        int remainder = sum % 11;
+        String verificationDigit = remainder == 11 ? "0" : remainder == 10 ? "K" : String.valueOf(remainder);
+
+        StringBuilder sb = new StringBuilder(documentId);
+        sb.append("-");
+        sb.append(verificationDigit);
+        return sb.toString();
+    }
 
 }
